@@ -13,6 +13,8 @@ import static javax.transaction.Transactional.TxType.SUPPORTS;
 @ApplicationScoped
 @Transactional(REQUIRED)
 public class VillainService {
+    @ConfigProperty(name = "level.multiplier", defaultValue="1.0")
+    double levelMultiplier;
 
     @Transactional(SUPPORTS)
     public List<Villain> findAllVillains() {
@@ -34,6 +36,7 @@ public class VillainService {
     }
 
     public Villain persistVillain(@Valid Villain villain) {
+        villain.level = (int) Math.round(villain.level * levelMultiplier);
         villain.persist();
         return villain;
     }
