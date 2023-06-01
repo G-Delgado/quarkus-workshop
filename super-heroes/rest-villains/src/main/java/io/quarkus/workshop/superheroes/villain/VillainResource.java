@@ -22,6 +22,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.UriInfo;
 
+
 import java.net.URI;
 import java.util.List;
 
@@ -63,7 +64,7 @@ public class VillainResource {
     @Path("/{id}")
     @APIResponse(responseCode = "200", content = @Content(mediaType = APPLICATION_JSON, schema = @Schema(implementation = Villain.class)))
     @APIResponse(responseCode = "204", description = "The villain is not found for a given identifier")
-    public RestResponse<Villain> getVillain(@RestPath Long id) {
+    public RestResponse<?> getVillain(@RestPath Long id) {
         Villain villain = service.findVillainById(id);
         if (villain != null) {
             logger.debug("Found villain " + villain);

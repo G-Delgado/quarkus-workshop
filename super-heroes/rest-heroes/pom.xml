@@ -19,9 +19,9 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.quarkus.workshop.super-heroes</groupId>
-    <artifactId>rest-villains</artifactId>
+    <artifactId>rest-heroes</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <name>Quarkus Workshop :: Super-Heroes :: Villains Microservice</name>
+    <name>Quarkus Workshop :: Super-Heroes :: Heroes Microservice</name>
 
     <properties>
         <compiler-plugin.version>3.8.1</compiler-plugin.version>
@@ -33,6 +33,7 @@
         <quarkus.platform.version>2.15.3.Final</quarkus.platform.version>
         <skipITs>true</skipITs>
         <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
+        <quarkus.pact.version>0.2.1</quarkus.pact.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -48,7 +49,23 @@
     <dependencies>
         <dependency>
             <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-smallrye-openapi</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
             <artifactId>quarkus-resteasy-reactive-jackson</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-hibernate-validator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-reactive-pg-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-hibernate-reactive-panache</artifactId>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
@@ -60,27 +77,22 @@
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-hibernate-orm-panache</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-hibernate-validator</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-jdbc-postgresql</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-smallrye-openapi</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
             <artifactId>quarkus-smallrye-health</artifactId>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-junit5</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkiverse.pact</groupId>
+            <artifactId>quarkus-pact-provider</artifactId>
+            <version>${quarkus.pact.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-panache-mock</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -92,14 +104,6 @@
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-container-image-docker</artifactId>
         </dependency>
-
-        <!-- tag::extension-version[]
-        <dependency>
-            <groupId>io.quarkus.workshop.super-heroes</groupId>
-            <artifactId>extension-version</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
-         end::extension-version[] -->
     </dependencies>
     <build>
         <plugins>

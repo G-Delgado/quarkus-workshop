@@ -10,6 +10,8 @@ import java.util.List;
 import static javax.transaction.Transactional.TxType.REQUIRED;
 import static javax.transaction.Transactional.TxType.SUPPORTS;
 
+
+
 @ApplicationScoped
 @Transactional(REQUIRED)
 public class VillainService {
