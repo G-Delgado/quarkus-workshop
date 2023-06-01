@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/super-heroes/event-statistics/event-statistics.iml" filepath="$PROJECT_DIR$/super-heroes/event-statistics/event-statistics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/super-heroes/extension-version/runtime/extension-version.iml" filepath="$PROJECT_DIR$/super-heroes/extension-version/runtime/extension-version.iml" />
+      <module fileurl="file://$PROJECT_DIR$/super-heroes/extension-version/deployment/extension-version-deployment.iml" filepath="$PROJECT_DIR$/super-heroes/extension-version/deployment/extension-version-deployment.iml" />
+      <module fileurl="file://$PROJECT_DIR$/super-heroes/extension-version/extension-version-parent.iml" filepath="$PROJECT_DIR$/super-heroes/extension-version/extension-version-parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/super-heroes/load-super-heroes/load-super-heroes.iml" filepath="$PROJECT_DIR$/super-heroes/load-super-heroes/load-super-heroes.iml" />
       <module fileurl="file://$PROJECT_DIR$/super-heroes/rest-villains/rest-villains.iml" filepath="$PROJECT_DIR$/super-heroes/rest-villains/rest-villains.iml" />
       <module fileurl="file://$PROJECT_DIR$/super-parent-root.iml" filepath="$PROJECT_DIR$/super-parent-root.iml" />
