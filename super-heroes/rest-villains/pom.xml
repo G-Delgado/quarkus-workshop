@@ -92,7 +92,7 @@
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-container-image-docker</artifactId>
         </dependency>
-        
+
 
         <!-- tag::extension-version[]
         <dependency>

@@ -1,27 +1,33 @@
 package io.quarkus.workshop.superheroes.fight;
 
+import org.eclipse.microprofile.config.inject.ConfigProperty;
+import org.eclipse.microprofile.faulttolerance.Timeout;
 import org.jboss.logging.Logger;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.validation.Valid;
-import javax.ws.rs.*;
-import javax.ws.rs.core.Context;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
-
 import java.util.List;
 
-import static javax.ws.rs.core.MediaType.*;
+import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
-import org.eclipse.microprofile.config.inject.ConfigProperty;
-import org.eclipse.microprofile.faulttolerance.Timeout;
-
+/**
+ * JAX-RS API endpoints with {@code /api/fights} as the base URI for all endpoints
+ */
 @Path("/api/fights")
 @Produces(APPLICATION_JSON)
+@ApplicationScoped
 public class FightResource {
 
-    @Inject Logger logger;
+    @Inject
+    Logger logger;
 
     @Inject
     FightService service;
@@ -41,7 +47,7 @@ public class FightResource {
     @Path("/randomfighters")
     @Timeout(500) // <-- Added
     public Response getRandomFighters() {
-        veryLongProcess(); // <-- Added
+        //  veryLongProcess(); // <-- Added
         Fighters fighters = service.findRandomFighters();
         logger.debug("Get random fighters " + fighters);
         return Response.ok(fighters).build();

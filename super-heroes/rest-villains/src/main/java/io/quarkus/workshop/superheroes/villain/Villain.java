@@ -1,7 +1,6 @@
 package io.quarkus.workshop.superheroes.villain;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
-import java.util.Random;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +9,9 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Random;
 
-
+/**
+ * JPA entity class for a Villain. Re-used in the API layer.
+ */
 @Entity
 public class Villain extends PanacheEntity {
     @NotNull

@@ -1,21 +1,21 @@
 package io.quarkus.workshop.superheroes.villain;
 
-import org.eclipse.microprofile.config.inject.ConfigProperty;
-
-import javax.enterprise.context.ApplicationScoped;
-import javax.transaction.Transactional;
-import javax.validation.Valid;
-import java.util.List;
-
 import static javax.transaction.Transactional.TxType.REQUIRED;
 import static javax.transaction.Transactional.TxType.SUPPORTS;
 
+import java.util.List;
+import javax.enterprise.context.ApplicationScoped;
+import javax.transaction.Transactional;
+import javax.validation.Valid;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
 
-
+/**
+ * Service class containing business methods for the application.
+ */
 @ApplicationScoped
 @Transactional(REQUIRED)
 public class VillainService {
-    @ConfigProperty(name = "level.multiplier", defaultValue="1.0")
+    @ConfigProperty(name = "level.multiplier", defaultValue = "1.0")
     double levelMultiplier;
 
     @Transactional(SUPPORTS)
